@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/laplas.js"></script>
+</head>
+<body>
+    <fieldset id="task1_fieldset">
+        <legend>Task 1</legend>
+        <button id="task1_default">Set default</button>
+        <div class="row">
+            <label>Amount of intervals:</label>
+            <input type="number" value="0" id="task1_size" max="20" min="0">
+        </div>
+        <div id="task1_input_div"></div>
+        <button id="task1_calculate">Calculate</button>
+        <canvas id="gistogram"></canvas>
+        <div id="task1_result_div">
+            <table id="task1_table1"></table>
+            <table id="task1_table2"></table>
+        </div>
+
+    </fieldset>
+
+    <fieldset id="task2_fieldset">
+        <legend>Task 2</legend>
+        <button id="task2_default">Set default</button>
+
+        <div class="row">
+            <label>Amount of intervals for 1:</label>
+            <input type="number" value="0" id="task2_size1" max="20" min="0">
+        </div>
+        <div id="task2_input_div1"></div>
+
+        <div class="row">
+            <label>Amount of intervals for 2:</label>
+            <input type="number" value="0" id="task2_size2" max="20" min="0">
+        </div>
+        <div id="task2_input_div2"></div>
+
+        <button id="task2_calculate">Calculate</button>
+        
+        <div id="task2_result_div"></div>
+    </fieldset>
+
+    <fieldset id="task3_fieldset">
+        <legend>Task 3</legend>
+        <button id="task3_default">Set default</button>
+
+        <div class="row">
+            <label>Amount of intervals for 1:</label>
+            <input type="number" value="0" id="task3_size1" max="20" min="0">
+        </div>
+        <div id="task3_input_div1"></div>
+
+        <div class="row">
+            <label>Amount of intervals for 2:</label>
+            <input type="number" value="0" id="task3_size2" max="20" min="0">
+        </div>
+        <div id="task3_input_div2"></div>
+
+        <button id="task3_calculate">Calculate</button>
+        
+        <div id="task3_result_div"></div>
+    </fieldset>
+
+    <script src="js/onchange.js"></script>
+    <script src="js/default.js"></script>
+    <script src="js/calculate.js"></script>
+    <script src="js/start.js"></script>
+    
+</body>
+</html>

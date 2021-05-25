@@ -1,0 +1,24 @@
+td {
+    min-width: 50px;
+    border: 1px solid gray;
+}
+
+.row {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.column {
+    display: flex;
+    flex-flow: column;
+}
+
+.input_number {
+    width: 50px;
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+}
