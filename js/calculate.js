@@ -378,52 +378,52 @@ task3_calculate.onclick = () => {
     y['s'] /= y['n'] - 1
     y['k'] = y['sample'].length - 1
 
-    o_z = (x['m'] - y['m']) / Math.sqrt(x['s'] / x['n'] + y['s'] / y['n'])
-    o_t = (x['m'] - y['m']) / 
-    Math.sqrt((x['n'] - 1) * x['s'] + (y['n'] - 1) * y['s']) *
-    Math.sqrt((x['n'] * y['n'] * (x['n'] + y['n'] - 2)) / (x['n'] + y['n']))
-    c_t = criticalT(x['sample'].length + y['sample'].length - 2)
-    c_z = Phi_from_z((1 - 0.05) / 2)
-
-    if (Math.abs(o_t) > c_t) {
-        T_test = false
-    }
-    else {
-        T_test = true
-    }
-
-    if (Math.abs(o_z) > c_z) {
-        Z_test = false
-    }
-    else {
-        Z_test = true
-    }
-
     let h4 = document.createElement('h4')
     h4.textContent = 'Hypothesis:'
     document.getElementById('task3_result_div').appendChild(h4)
 
-    h4 = document.createElement('h4')
-    h4.textContent = `H0 (Z-test): ${Z_test}`
-    document.getElementById('task3_result_div').appendChild(h4)
+    if (x['s'] == y['s']) {
+        c_t = criticalT(x['sample'].length + y['sample'].length - 2)
+        // o_t = (x['m'] - y['m']) / 
+        // Math.sqrt((x['n'] - 1) * x['s'] + (y['n'] - 1) * y['s']) *
+        // Math.sqrt((x['n'] * y['n'] * (x['n'] + y['n'] - 2)) / (x['n'] + y['n']))
 
-    h4 = document.createElement('h4')
-    h4.textContent = `H0 (T-test): ${T_test}`
-    document.getElementById('task3_result_div').appendChild(h4)
+        o_t = (x['m'] - y['m']) / 
+        Math.sqrt((x['n'] * x['s'] + y['n'] * y['s']) / (x['n'] + y['m'] - 2) *
+        (1 / x['n'] + 1 / y['n']))
 
-    h4 = document.createElement('h4')
-    h4.textContent = `Observed value (Z): ${o_z}`
-    document.getElementById('task3_result_div').appendChild(h4)
+        if (Math.abs(o_t) > c_t) T_test = false
+        else T_test = true
 
-    h4 = document.createElement('h4')
-    h4.textContent = `Observed value (T): ${o_t}`
-    document.getElementById('task3_result_div').appendChild(h4)
+        h4 = document.createElement('h4')
+        h4.textContent = `H0 (T-test): ${T_test}`
+        document.getElementById('task3_result_div').appendChild(h4)
 
-    h4 = document.createElement('h4')
-    h4.textContent = `Critical point z: ${c_z}`
-    document.getElementById('task3_result_div').appendChild(h4)
+        h4 = document.createElement('h4')
+        h4.textContent = `Observed value (T): ${o_t}`
+        document.getElementById('task3_result_div').appendChild(h4)
 
-    h4 = document.createElement('h4')
-    h4.textContent = `Critical point t: ${c_t}`
-    document.getElementById('task3_result_div').appendChild(h4)
+        h4 = document.createElement('h4')
+        h4.textContent = `Critical point t: ${c_t}`
+        document.getElementById('task3_result_div').appendChild(h4)
+    }
+    else {
+        o_z = (x['m'] - y['m']) / Math.sqrt(x['s'] / x['n'] + y['s'] / y['n'])
+        c_z = Phi_from_z((1 - 0.05) / 2)
+
+        if (Math.abs(o_z) > c_z) Z_test = false
+        else Z_test = true
+
+        h4 = document.createElement('h4')
+        h4.textContent = `H0 (Z-test): ${Z_test}`
+        document.getElementById('task3_result_div').appendChild(h4)
+
+        h4 = document.createElement('h4')
+        h4.textContent = `Observed value (Z): ${o_z}`
+        document.getElementById('task3_result_div').appendChild(h4)
+
+        h4 = document.createElement('h4')
+        h4.textContent = `Critical point z: ${c_z}`
+        document.getElementById('task3_result_div').appendChild(h4)
+    }
 }
